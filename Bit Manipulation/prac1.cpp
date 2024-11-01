@@ -8,7 +8,13 @@ int main()
     // cout<<a<<endl;
     // unsigned int b=(1LL<<32)-1;
     // cout<<b<<endl;
-     cout<<((9<<0)&1)<<endl;
+    //  cout<<((9<<0)&1)<<
+    int p=-1;
+    int q=-1;
+    if(p==q==-1)
+    {
+        cout<<"helolo";
+    }
 
        
 
