@@ -1,29 +1,23 @@
-#include <iostream>
-#include <string>
-#include <unordered_set>
+#include <bits/stdc++.h>
 using namespace std;
-
-int main() {
+int main()
+{
     int t;
     cin >> t;
-
-    while (t--) {
+    while (t--)
+    {
         int n;
+        cin >> n;
         string s;
-        cin >> n >> s;
-
-        // Using a set to store unique substrings
-        unordered_set<string> distinct_substrings;
-
-        // Generate all suffixes and add them to the set
-        for (int i = 0; i < n; ++i) {
-            string substring = s.substr(i);
-            distinct_substrings.insert(substring);
-        }
-
-        // Output the number of unique substrings for the test case
-        cout << distinct_substrings.size() << endl;
+        cin >> s;
+        unordered_set<char> st;
+        int ans=0;
+       for(auto &i:s)
+       {
+             st.insert(i); 
+             ans+=st.size();
+       }
+       cout<<ans<<endl;
     }
-
     return 0;
 }
