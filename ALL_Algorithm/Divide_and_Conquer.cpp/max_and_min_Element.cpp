@@ -35,7 +35,7 @@ int main()
     pair<int, int> result = fminmax(arr, 0, arr.size() - 1);
 
      cout << "Minimum element: " << result.first << endl;
-    cout << "Maximum element: " << result.second << endl;
+     cout << "Maximum element: " << result.second << endl;
 
 
 return 0;
