@@ -1,32 +1,28 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include <algorithm>
 using namespace std;
 
-bool isFeasible(const vector<int>& nums, int maxOperations, int penalty) {
+bool canAchievePenalty(vector<int>& nums, int penalty, int maxOperations) {
     int operations = 0;
     for (int balls : nums) {
         if (balls > penalty) {
-            operations += (balls - 1) / penalty;
-        }
-        if (operations > maxOperations) {
-            return false;
+            operations += (balls - 1) / penalty; // Calculate operations needed to make all bags <= penalty
         }
     }
-    return true;
+    return operations <= maxOperations;
 }
 
-int minimizePenalty(vector<int>& nums, int maxOperations) {
-    int low = 1, high = *max_element(nums.begin(), nums.end());
-    int result = high;
+int minimumPenalty(vector<int>& nums, int maxOperations) {
+    int left = 1;                          // Minimum possible penalty
+    int right = *max_element(nums.begin(), nums.end()); // Maximum possible penalty
+    int result = right;
 
-    while (low <= high) {
-        int mid = (low + high) / 2;
-        if (isFeasible(nums, maxOperations, mid)) {
-            result = mid;    // Update result with feasible penalty
-            high = mid - 1;  // Try to find a smaller penalty
-        } else {
-            low = mid + 1;   // Increase the penalty
+    for (int penalty = left; penalty <= right; ++penalty) {
+        if (canAchievePenalty(nums, penalty, maxOperations)) {
+            result = penalty;
+            break;
         }
     }
 
@@ -34,8 +30,8 @@ int minimizePenalty(vector<int>& nums, int maxOperations) {
 }
 
 int main() {
-    vector<int> nums = {9};
-    int maxOperations = 2;
-    cout << minimizePenalty(nums, maxOperations) << endl; // Output: 4
+    vector<int> nums = {2,4,8,2};
+    int maxOperations = 4;
+    cout << "Minimum Penalty: " << minimumPenalty(nums, maxOperations) << endl;
     return 0;
 }
