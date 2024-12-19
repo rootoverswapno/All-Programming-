@@ -11,7 +11,10 @@ void code()
 }
 void solve()
 {
-	cout<<"Hiii"<<endl;
+	int n;
+	cin>>n;
+	cout<<n-1<<endl;
+	
 	
 }
 int main()

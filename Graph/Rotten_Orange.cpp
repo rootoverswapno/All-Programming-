@@ -30,6 +30,10 @@ int main()
     }
  }
  vector<vector<int>>adjlist=adj(v);
+
+
+
+ 
     
     for(auto &i:adjlist)
     {

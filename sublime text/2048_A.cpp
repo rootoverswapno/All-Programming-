@@ -11,7 +11,7 @@ void code()
 }
 void solve()
 {
-	cout<<"Hiii"<<endl;
+	cout<<"S"<<endl;
 	
 }
 int main()
