@@ -30,13 +30,23 @@ void solve_by_Swapno(){
     cout<<0<<endl;
     return;
    }
-   if(mex(v)==0)
+   while(!v.empty()&&v.back()==0)
    {
-    cout<<0<<endl;
+    v.pop_back();
+   }
+   while(!v.empty()&&v.front()==0)
+   {
+    v.erase(v.begin());
+   }
+   
+
+   if(count(v.begin(),v.end(),0)>0)
+   {
+    cout<<2<<endl;
    }
    else
    {
-    cout<<2<<endl;
+    cout<<1<<endl;
    }
 
 }
