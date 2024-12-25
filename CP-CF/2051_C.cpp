@@ -1,49 +1,47 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
-const int N = 1e3 + 10;
-bool check(vector<int>& v, unordered_set<int>& st) {
-    for (auto x : v) {
-        if (st.find(x) == st.end()) {
-            return false;
-        }
-    }
-    return true;
-}
-void solve_by_Swapno() {
-    int n, m, k;
+const int N=1e3+10;
+vector<int>graph[N];
+bool visited[N];
+void  dfs(int vertex){visited[vertex]=true;for(auto cheld:graph[vertex]){if(visited[cheld]){ continue;}dfs(cheld);}}
+void solve_by_Swapno(){
+int n, m, k;
     cin >> n >> m >> k;
-    
-    vector<int> v1(m), v2(k);
-    for (auto &x : v1) cin >> x;
-    for (auto &x : v2) cin >> x;
 
-    unordered_set<int> st(v2.begin(), v2.end());
-    
-    string s = "";
+    vector<int> v1(m), v2(k);
+    for (auto &i : v1) {
+        cin >> i;
+    }
+    for (auto &i : v2) {
+        cin >> i;
+    }
+    unordered_set<int> set_v2(v2.begin(), v2.end());
+
+    string result;
     for (int i = 0; i < m; ++i) {
-        vector<int> temp;
+        bool allPresent = true;
+
         for (int j = 1; j <= n; ++j) {
-            if (j != v1[i]) {
-                temp.push_back(j);
+            if (j != v1[i] && set_v2.find(j) == set_v2.end()) {
+                allPresent = false;
+                break; 
             }
         }
 
-        if (check(temp, st)) {
-            s += '1';
-        } else {
-            s += '0';
-        }
+        result += (allPresent ? '1' : '0');
     }
 
-    cout << s << endl;
+    cout << result << endl;
+
 }
-
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        solve_by_Swapno();
-    }
-    return 0;
+int main()
+{
+int t;
+cin>>t;
+while(t--)
+{
+solve_by_Swapno();
+}
+return 0;
 }
