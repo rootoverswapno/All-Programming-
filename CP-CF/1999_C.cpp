@@ -32,7 +32,7 @@ vector<pair<int,int>>pr(n);
     }
   }
 
-  if(n-pr[n-1].second>=s)
+  if(m-pr[n-1].second>=s)
   {
     cout<<"YES"<<endl;
     return;
