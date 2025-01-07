@@ -13,7 +13,6 @@ int main()
         continue;
     } 
     else 
-    
     {
         vc.push_back(s[i]);
     }
@@ -25,6 +24,9 @@ int main()
     cout<<i;
    }
    cout<<"\n";
+
+
+
 
 return 0;
 }

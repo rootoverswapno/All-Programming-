@@ -11,9 +11,25 @@ void code()
 }
 void solve()
 {
-	
-	cout<<"Kurup "<<endl;
-   
+
+	long long x,m;
+
+	cin>>x>>m;
+	long long ct=0;
+	for(long long y=1;y<=min((2*x),m);++y)
+	{
+
+		if(x!=y)
+		{
+			long long xx=x^y;
+
+			if(x%xx==0||y%xx==0)
+			{
+				ct++;
+			}
+		}
+	}
+	cout<<ct<<endl;
 	
 }
 int main()
