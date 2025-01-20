@@ -60,7 +60,8 @@
     "iostream": "cpp",
     "valarray": "cpp",
     "ostream": "cpp",
-    "ratio": "cpp"
+    "ratio": "cpp",
+    "*.tcc": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+
 using namespace std;
 
 void code()
@@ -11,24 +12,12 @@ void code()
 void solve()
 {
 
-	long long x,m;
-
-	cin>>x>>m;
-	long long ct=0;
-	for(long long y=1;y<=min((2*x),m);++y)
-	{
-
-		if(x!=y)
-		{ 
-			long long xx=x^y;
-
-			if(x%xx==0||y%xx==0)
-			{
-				ct++;
-			}
-		}
-	}
-	cout<<ct<<endl;
+	int h,m;char c;
+  cin>>h>>c>>m;
+  string am=(h<12?"AM":"PM");
+  h=(h%12?h%12:12);
+   
+   cout<<(h<10?"0":"")<<h<<c<<(m<10?"0":"")<<m<<" "<<am<<endl;
 	
 }
 int main()
