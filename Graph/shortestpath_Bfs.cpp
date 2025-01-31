@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
+const int INF=1e9+10;
 int vis[8][8];
 int level[8][8];
 vector<pair<int,int>>movements={
@@ -30,6 +31,7 @@ int bfs(string source ,string dest)
     queue<pair<int,int>>q;
     q.push({sourceX,sourceY});
     vis[sourceX][sourceY]=1;
+    level[sourceX][sourceY]=0;
     while(!q.empty())
     {
         pair<int,int>v=q.front();
@@ -50,7 +52,10 @@ int bfs(string source ,string dest)
             }
 
         }
-        
+        if(level[destX][destY]!=INF)
+        {
+            break;
+        }
 
     }
     return level[destX][destY];
@@ -62,7 +67,7 @@ void reset()
         for(int j=0;j<8;++j)
         {
             vis[i][j]=0;
-            level[i][j]=0;
+            level[i][j]=INF;
         }
     }
 }
