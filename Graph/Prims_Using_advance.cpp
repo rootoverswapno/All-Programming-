@@ -1,13 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int prims(int V, vector<vector<pair<int, int>>> &adj) {
-    vector<int> vis(V, 0);
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    
+int prims(int v, vector<vector<pair<int, int>>> &adj) {
+    vector<int> vis(v, 0);
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq
     int sum = 0;
-    pq.push({0, 0}); // {weight, node}
-
+    pq.push({0, 0}); 
     while (!pq.empty()) {
         auto [wt, node] = pq.top();
         pq.pop();
@@ -26,17 +24,17 @@ int prims(int V, vector<vector<pair<int, int>>> &adj) {
 }
 
 int main() { 
-    int V, E;
-    cin >> V >> E;
-    vector<vector<pair<int, int>>> adj(V);
+    int v, e;
+    cin >> v >> e;
+    vector<vector<pair<int, int>>> adj(v);
 
-    for (int i = 0; i < E; ++i) {
+    for (int i = 0; i < e; ++i) {
         int u, v, w;
         cin >> u >> v >> w;
         adj[u].push_back({v, w});
         adj[v].push_back({u, w});
     }
 
-    cout << prims(V, adj) << endl;
+    cout << prims(v, adj) << endl;
     return 0;
 }
